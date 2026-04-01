@@ -1,19 +1,13 @@
-# Utilise une image officielle PHP avec le serveur web Apache
-FROM php:8.2-apache
+# On utilise la version CLI (sans Apache) qui est beaucoup plus légère
+FROM php:8.2-cli
 
-# --- FIX RAILWAY : Empêcher le crash Apache des modules MPM multiples ---
-RUN a2dismod mpm_event mpm_worker || true
-RUN a2enmod mpm_prefork
+# On copie le projet dans un dossier /app
+COPY . /app
+WORKDIR /app
 
-# Active les modules de réécriture d'URL d'Apache (utile pour la propreté)
-RUN a2enmod rewrite
+# On donne les permissions maximales pour que le Mock puisse écrire ses logs
+RUN chmod -R 777 logs config assets/img
 
-# Copie tout le contenu de votre projet dans le dossier web du serveur
-COPY . /var/www/html/
-
-# Donne les droits d'écriture au serveur pour qu'il puisse écrire dans les logs et la config
-RUN chown -R www-data:www-data /var/www/html/logs /var/www/html/config /var/www/html/assets/img
-RUN chmod -R 777 /var/www/html/logs /var/www/html/config /var/www/html/assets/img
-
-# Expose le port 80 pour Railway
-EXPOSE 80
+# Railway attribue un port aléatoire via la variable $PORT.
+# On lance le serveur natif PHP pour qu'il écoute sur ce port.
+CMD [ "sh", "-c", "php -S 0.0.0.0:$PORT" ]
