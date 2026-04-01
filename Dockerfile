@@ -1,6 +1,10 @@
 # Utilise une image officielle PHP avec le serveur web Apache
 FROM php:8.2-apache
 
+# --- FIX RAILWAY : Empêcher le crash Apache des modules MPM multiples ---
+RUN a2dismod mpm_event mpm_worker || true
+RUN a2enmod mpm_prefork
+
 # Active les modules de réécriture d'URL d'Apache (utile pour la propreté)
 RUN a2enmod rewrite
 
