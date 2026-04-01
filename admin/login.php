@@ -2,8 +2,10 @@
 session_start();
 $erreur = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $config = parse_ini_file('../config/system_config.ini');
-    if ($_POST['admin_pwd'] === $config['MOT_DE_PASSE_ADMIN']) {
+    // AJOUT DE __DIR__ POUR LE CLOUD RAILWAY
+    $config = parse_ini_file(__DIR__ . '/../config/system_config.ini');
+    
+    if ($config !== false && $_POST['admin_pwd'] === $config['MOT_DE_PASSE_ADMIN']) {
         $_SESSION['admin_logged_in'] = true;
         header("Location: dashboard.php");
         exit();
