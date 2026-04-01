@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail Captif</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="lang-selector">
+        <button onclick="changeLang('fr')">FR</button>
+        <button onclick="changeLang('en')">EN</button>
+    </div>
+    
+    <div class="container">
+        <img src="../assets/img/logo.png" alt="Logo" class="logo">
+        <h1 id="titre_bienvenue">Ravis de vous voir !</h1>
+        <p class="subtitle" id="sous_titre">Connectez-vous pour profiter d'un accès rapide et sécurisé à notre réseau Internet.</p>
+        
+        <form action="../core/auth_handler.php" method="POST">
+            <div class="input-group">
+                <input type="password" name="password" id="password" required placeholder="Mot de passe">
+                <button type="button" class="toggle-pwd" onclick="togglePassword()">👁️</button>
+            </div>
+            <button type="submit" id="bouton_connexion" class="btn">Se connecter</button>
+        </form>
+        
+        <p class="footer-text">Réseau privé – usage réservé</p>
+    </div>
+
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

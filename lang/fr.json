@@ -1,0 +1,10 @@
+{
+    "titre_bienvenue": "Ravis de vous voir !",
+    "sous_titre": "Connectez-vous pour profiter d'un accès rapide et sécurisé à notre réseau Internet.",
+    "champ_mdp": "Votre mot de passe d'accès...",
+    "bouton_connexion": "Accéder à Internet",
+    "statut_connecte": "Vous êtes en ligne !",
+    "statut_message": "Votre connexion est sécurisée. Vous pouvez maintenant naviguer librement.",
+    "bouton_deconnexion": "Me déconnecter en toute sécurité",
+    "erreur_mdp": "Oups ! Ce mot de passe ne semble pas être le bon. Réessayons."
+}

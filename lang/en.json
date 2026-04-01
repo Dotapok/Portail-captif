@@ -1,0 +1,10 @@
+{
+    "titre_bienvenue": "Great to see you!",
+    "sous_titre": "Sign in to enjoy fast and secure access to our Internet network.",
+    "champ_mdp": "Your access password...",
+    "bouton_connexion": "Get Online",
+    "statut_connecte": "You are online!",
+    "statut_message": "Your connection is secure. You can now browse freely.",
+    "bouton_deconnexion": "Disconnect safely",
+    "erreur_mdp": "Oops! That password doesn't seem right. Let's try again."
+}
